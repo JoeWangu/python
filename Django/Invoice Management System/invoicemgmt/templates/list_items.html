@@ -27,15 +27,14 @@
         <form method='POST' action='' class="search-form">{% csrf_token %}
             <div class="row">
                 <div class='col-sm-12'>
-                    <div class="form-row">
+                    <div class="form-row d-flex">
                         <div class="form-group col-md-3">
                             {{ form.invoice_number|as_crispy_field }}
                         </div>
                         <div class="form-group col-md-3">
                             {{ form.name|as_crispy_field }}
                         </div>
-                        <div class="form-group col-md-3">
-                            <br>
+                        <div class="form-group col-md-3 align-self-center">
                             <button type="submit" class="btn btn-primary">Search</button>
                         </div>
                     </div>
@@ -71,7 +70,7 @@
 
     <script src="{% static 'js/jquery-3.6.4.js' %}"></script>
     <script src="{% static 'jquery-ui-1.13.2/jquery-ui.js' %}"></script>
-    <script src="{% static 'js/table-pagination.js' %}"></script>
+    <script src="{% static 'js/fancyTable.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 

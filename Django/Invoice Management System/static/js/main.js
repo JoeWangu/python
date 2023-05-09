@@ -68,32 +68,23 @@ $('#id_line_one_quantity, #id_line_one_unit_price, #id_line_two_quantity, #id_li
     $('#id_total').val(total);
 });
 
-// pagination of the table
-$(function () {
-    $('.table').createTablePagination();
+//pagination of the table
+
+$(".table").fancyTable({
+    //sortColumn:0, // column number for initial sorting
+    //sortOrder: 'ascending', // 'desc', 'descending', 'asc', 'ascending', -1 (descending) and 1 (ascending)
+    //sortable: false,
+    //searchable: true,
+    //globalSearch: true,
+    globalSearchExcludeColumns: [2,5], // exclude column 2 & 5
+    pagination: true, // default: false
+    pagination: false,
+    paginationClass: "btn btn-light",
+    paginationClassActive: "active",
+    pagClosest: 3,
+    perPage: 10,
 });
-$(function () {
-    $('.table').createTablePagination({
-        rowPerPage: 5,
-    });
-});
-$(function () {
-    $('.table').createTablePagination({
-        paginationColor: '#6f7ad7',
-        fontColor: '#555555',
-        paginationStyle: 'borderless', // or 'bordered'
-    });
-});
-$(function () {
-    $('.table').createTablePagination({
-        transitionDuration: 500,
-    });
-});
-$(function () {
-    $('.table').createTablePagination({
-        jumpPage: true,
-    });
-});
+
 
 // Scroll Top Script
 //Check to see if the window is top if not then display button
