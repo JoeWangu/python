@@ -24,10 +24,23 @@
     <h1>{{title}}</h1>
 
     <div class="myForm">
-        <form method='POST' action=''>{% csrf_token %}
-            {{ form.invoice_number|as_crispy_field }}
-            {{ form.name|as_crispy_field }}
-            <input type="submit" value='Search' />
+        <form method='POST' action='' class="search-form">{% csrf_token %}
+            <div class="row">
+                <div class='col-sm-12'>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            {{ form.invoice_number|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3">
+                            {{ form.name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3">
+                            <br>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
     <br>
@@ -54,6 +67,12 @@
         </tr>
         {% endfor %}
     </table>
+    <a href="#" class="scrollToTop">Scroll To Top</a>
+
+    <script src="{% static 'js/jquery-3.6.4.js' %}"></script>
+    <script src="{% static 'jquery-ui-1.13.2/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/table-pagination.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
