@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="refresh" content="500">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Furniture</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+            integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <section id="main">
+            <nav class="navigation">
+                <a href="#" class="logo">
+                    LOGO
+                </a>
+                <ul class="menu">
+                    <li>
+                        <a href="#" class="nav-home">
+                            <i class="fas fa-home" style="color:#2196F3"></i>
+                            home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-about">
+                            <i class="fas fa-shipping-fast"></i>
+                            about
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-services">
+                            <i class="fas fa-paper-plane"></i>
+                            services
+                        </a>
+                    </li>
+                    <li>
+                        <select value="drop down" class="drop">
+
+                            <option name="more" id="more" selected>more</option>
+                            <option name="tables" id="tables">tables</option>
+                            <option name="chairs" id="chairs">chairs</option>
+                            <option name="cupboards" id="cupboards">cupboards</option>
+                            <option name="shelves" id="shelves">shelves</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-contact">
+                            <i class="fas fa-phone"></i>
+                            contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+        <div class="container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </body>
+</html>

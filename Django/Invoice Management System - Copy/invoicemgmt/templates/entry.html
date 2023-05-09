@@ -1,0 +1,107 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link href="{% static 'jquery-ui-1.13.2/jquery-ui.css' %}" rel="stylesheet">
+    <link href="{% static 'jquery-ui-1.13.2/jquery-ui.structure.css' %}" rel="stylesheet">
+    <link href="{% static 'jquery-ui-1.13.2/jquery-ui.theme.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="row d-flex">
+        <div class="col-sm-9">
+            <div class="myForm">
+                <form method='POST' action=''>{% csrf_token %}
+                    <div class="row">
+                        <div class='col-sm-9'>
+                            <div class="form-row d-flex">
+                                <div class="form-group col-md-6">
+                                    {{ form.invoice_date|as_crispy_field }}
+                                    {{ form.name|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form.invoice_number|as_crispy_field }}
+                                    {{ form.phone_number|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="form-row d-flex">
+                                <div class="form-group col-md-6">
+                                    {{ form.line_one|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2">
+                                    {{ form.line_one_quantity|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2">
+                                    {{ form.line_one_unit_price|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2">
+                                    {{ form.line_one_total_price|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex">
+                                <div class="form-group col-md-6">
+                                    {{ form.line_two|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2">
+                                    {{ form.line_two_quantity|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2">
+                                    {{ form.line_two_unit_price|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-2">
+                                    {{ form.line_two_total_price|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    {{ form.invoice_type|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-12">
+                                    {{ form.total|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save</button>
+
+                            <!-- <input type="submit" value='Submit'/>   -->
+                        </div>
+                    </div>
+                </form>
+            </div><!-- End myform -->
+        </div>
+
+        <div class="col-sm-3">
+            <div class="recent">
+                <span class="">Recent invoices</span>
+                <span class="">{{total_invoices}}</span>
+                <br><br>
+                {% for instance in queryset %}
+                <div>
+                    <div class="">{{instance.name}}</div>
+                    <div class="">{{instance.invoice_date}}</div>
+                </div>
+                <div class="">${{instance.total}}</div><br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'jquery-ui-1.13.2/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.4.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- <script src="static 'jquery-ui-1.13.2/jquery-ui.min.js'"></script> -->
+    <!-- <script src="'js/bootstrap.js'"></script> -->
+</body>
+
+</html>

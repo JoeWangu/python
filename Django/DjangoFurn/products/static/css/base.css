@@ -1,0 +1,105 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 1%;
+    flex-wrap: wrap;
+}
+
+.logo{
+    height: 70px;
+}
+
+ul{
+    list-style: none;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li a{
+    border-radius: 10px;
+    letter-spacing: 1px;
+    margin: 0px 5px;
+    font-size: 0.8rem;
+
+}
+
+.nav-home,
+.nav-about,
+.nav-services,
+.nav-contact{
+    padding: 10px 25px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+    background-color: #ffe4c4;
+    color: #3391ff;
+    font-weight: 500;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+}
+
+.nav-home:hover,
+.nav-about:hover,
+.nav-services:hover,
+.nav-contact:hover {
+    background-color: #116a88;
+    transition: all ease 0.3s;
+}
+
+.nav-home{
+    background-color: rgba(201, 142, 16, 0.658);
+}
+a{
+    text-decoration: none;
+}
+
+.drop{
+    text-decoration: none;
+        background-color: #804124;
+        color: rgb(247, 247, 247);
+        padding: 10px 5px;
+        border: none;
+        border-radius: 10px;
+        letter-spacing: 1px;
+        margin: 0px 5px;
+        font-weight: bolder;
+        font-size: medium;
+}
+
+
+
+/**
+#main {
+    width: 100%;
+    min-height: 83vh;
+    background-image: url(pics/login.jpg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.logo image {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+
+.menu li a {
+    margin: 0px 5px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border-radius: 10px;
+}

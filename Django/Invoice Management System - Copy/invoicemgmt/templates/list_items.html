@@ -1,0 +1,59 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>List of Invoices</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>{{title}}</h1>
+
+    <div class="myForm">
+        <form method='POST' action=''>{% csrf_token %}
+            {{ form.invoice_number|as_crispy_field }}
+            {{ form.name|as_crispy_field }}
+            <input type="submit" value='Search' />
+        </form>
+    </div>
+    <br>
+
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>COUNT</th>
+                <th>DATE</th>
+                <th>CUSTOMER NAME</th>
+                <th>INVOICE NUMBER</th>
+                <th>AMOUNT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        {% for instance in queryset %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{instance.invoice_date}}</td>
+            <td><a href="{% url 'update_invoice' instance.id %}">{{instance.name}}</a></td>
+            <td>{{instance.invoice_number}}</td>
+            <td>{{instance.total}}</td>
+            <td><a href="{% url 'delete_invoice' instance.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

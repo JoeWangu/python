@@ -1,0 +1,15 @@
+DATA DUMP AND RECOVERY FROM SQLLITE TO MYSQL
+
+
+
+
+This is what worked for me after a lot of trials. I was having a lot of trouble with groups and logs.
+
+    While on sqllite, start server, go to admin and delete all groups. Then type the following in shell:
+
+    python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission -e admin.Logentry > datadump_3.json
+
+    Change settings to MySQL in settings.py
+
+    python manage.py loaddata datadump_3.json
+
