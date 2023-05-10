@@ -37,13 +37,6 @@ class InvoiceForm(forms.ModelForm):
                         raise forms.ValidationError(require)
                 return name
 
-
-class InvoiceSearchForm(forms.ModelForm):
-        class Meta:
-                model = Invoice
-                fields = ['invoice_number', 'name']
-
-
 class InvoiceUpdateForm(forms.ModelForm):
 	class Meta:
 		model = Invoice
@@ -73,3 +66,9 @@ class InvoiceUpdateForm(forms.ModelForm):
         #         if not name:
         #                 raise forms.ValidationError(require)
         #         return name
+
+class InvoiceSearchForm(forms.ModelForm):
+        generate_invoice = forms.BooleanField(required=False)
+        class Meta:
+                model = Invoice
+                fields = ['invoice_number', 'name','generate_invoice']
