@@ -73,12 +73,11 @@ $('#id_line_one_quantity, #id_line_one_unit_price, #id_line_two_quantity, #id_li
 $(".table").fancyTable({
     //sortColumn:0, // column number for initial sorting
     //sortOrder: 'ascending', // 'desc', 'descending', 'asc', 'ascending', -1 (descending) and 1 (ascending)
-    //sortable: false,
-    //searchable: true,
-    //globalSearch: true,
-    globalSearchExcludeColumns: [2,5], // exclude column 2 & 5
+    sortable: false,
+    searchable: false,
+    globalSearch: false,
+    // globalSearchExcludeColumns: [0,1,2,3,4,5,6], // exclude column 2 & 5
     pagination: true, // default: false
-    pagination: false,
     paginationClass: "btn btn-light",
     paginationClassActive: "active",
     pagClosest: 3,

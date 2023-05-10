@@ -3,6 +3,12 @@ from .forms import InvoiceForm,InvoiceSearchForm,InvoiceUpdateForm
 from .models import * # or from .models import Invoice
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import landscape
+from reportlab.platypus import Imag
+
+
 
 # Create your views here.
 def home(request):

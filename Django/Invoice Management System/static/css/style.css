@@ -68,8 +68,8 @@ body {
     transition: all 0.5s ease;
 }
 
-/*Table paination styling*/
-.paging-nav {
+/*Table pagination styling*/
+/* .paging-nav {
     text-align: right;
     padding-top: 2px;
     font-size: 20px;
@@ -89,7 +89,7 @@ body {
 .paging-nav .selected-page {
     background: #187ed5;
     font-weight: bold;
-}
+} */
 
 /* End Table paination styling*/
 
