@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Hello, {{ user.username|default:'Guest' }}</h1>
+
+
+<p> Welcome to Our site</p>
+<div>
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'register' %}">Sign Up</a>
+    <br>
+    <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
+<div>
+    <!-- {{ profile }} -->
+    {% for prof in profile %}
+    {{ prof.birth_date }}
+    {% endfor %}
+</div>
+{% endblock %}
