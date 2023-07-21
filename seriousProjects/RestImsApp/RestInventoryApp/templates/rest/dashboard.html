@@ -1,0 +1,42 @@
+{% extends "rest_base.html" %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/user_home.css' %}">
+{% endblock  %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>Welcome {{ user.username|default:'guest'}}</h1>
+{% else %}
+<h1>Welcome to the Dashboard, login to see more</h1>
+{% endif %}
+
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}">logout</a>
+{% else %}
+<a href="{% url 'MyLoginView' %}">login</a>
+<a href="{% url 'signup' %}">signup</a>
+{% endif %}
+
+{% comment %} theme toggle switch {% endcomment %}
+<label for="theme" class="theme">
+	<span class="theme__toggle-wrap">
+		<input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
+		<span class="theme__fill"></span>
+		<span class="theme__icon">
+			<span class="theme__icon-part"></span>
+			<span class="theme__icon-part"></span>
+			<span class="theme__icon-part"></span>
+			<span class="theme__icon-part"></span>
+			<span class="theme__icon-part"></span>
+			<span class="theme__icon-part"></span>
+			<span class="theme__icon-part"></span>
+			<span class="theme__icon-part"></span>
+			<span class="theme__icon-part"></span>
+		</span>
+	</span>
+</label>
+{% endblock  %}
