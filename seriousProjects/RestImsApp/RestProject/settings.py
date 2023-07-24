@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'user',
-    'RestInventoryApp',
+    'inventory',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'RestProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,7 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -128,10 +129,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # added
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-STATIC_ROOT = BASE_DIR / 'static'
-STATIC_DIRS = [
+STATIC_ROOT = BASE_DIR / 'collected_static'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'user', 'static'),
-    os.path.join(BASE_DIR, 'RestInventoryApp', 'static')
+    os.path.join(BASE_DIR, 'inventory', 'static'),
 ]
 
 AUTH_USER_MODEL = 'user.User'
@@ -139,3 +141,25 @@ AUTH_USER_MODEL = 'user.User'
 # users will be redirected to the home page after login
 LOGIN_REDIRECT_URL = "user_home"
 LOGOUT_REDIRECT_URL = "logoutView"
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES':
+#         ['rest_framework.permissions.IsAdminUser'],
+#         'PAGE_SIZE': 10
+# }
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAdminUser'],
+    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+}
+
+# settings.py
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
