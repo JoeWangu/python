@@ -31,7 +31,7 @@ class Product(models.Model):
     specifications = models.TextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, blank=True, null=True, default='not provided')
+    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, blank=True, null=True)
     IMAGE_CHOICES = [(filename, filename) for filename in os.listdir(settings.MEDIA_ROOT)]
     image = models.CharField(max_length=100, choices=IMAGE_CHOICES)
     
