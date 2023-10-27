@@ -1,0 +1,41 @@
+body{
+    font-family: "Berlin Sans FB", sans-serif;
+    display: flex;
+    justify-content: center;
+    /*background-color: white;*/
+}
+
+form{
+    background-color: aqua;
+    padding: 20px 30px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 5px limegreen;
+}
+
+h1{
+    text-align: center;
+}
+
+label{
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"]{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 100%;
+}
+
+input[type="submit"]{
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/*input[type="submit"]:hover{*/
+/*    !*background-color: brown;*!*/
+/*}*/

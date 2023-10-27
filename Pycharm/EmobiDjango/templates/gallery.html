@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport"#}
+{#          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
+{#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+{#    <title>Gallery</title>#}
+{#    #}
+{#    <link rel="stylesheet" href="{% static 'css/style.css' %}">#}
+{#</head>#}
+{#<body>#}
+{#<h1>MY GALLERY</h1>#}
+{#    <a href="{% url 'home' %}" class="btn btn-primary">Home</a>#}
+{#    <a href="{% url 'gallery' %}" class="btn btn-success">Gallery</a>#}
+{#    <a href="{% url 'contact' %}" class="btn btn-danger">Contact</a>#}
+{#    <a href="{% url 'about' %}" class="btn btn-warning">About</a>#}
+{##}
+{#<br>#}
+{##}
+{#<img src="{% static 'images/Fifa-14.jpg' %}" alt="">#}
+{#<img src="{% static 'images/fifa-xbox-games.jpg' %}" alt="">#}
+{#<img src="{% static 'images/fifa-xbox-one.jpg' %}" alt="">#}
+{#<img src="{% static 'images/five_years_of_assassins_creed-HD.jpg' %}" alt="">#}
+{#<img src="{% static 'images/far_cry_4_game-wide.jpg' %}" alt="">#}
+{#<img src="{% static 'images/forza_horizon_3_4k-HD.jpg' %}" alt="">#}
+{#</body>#}
+{#</html>#}
+{% extends 'layout.html' %}
+{% load static %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">{% endblock %}
+<title>{% block title %}Index{% endblock %}</title>
+{% block content %}
+    <h1>MY GALLERY</h1>
+    <img src="{% static 'images/Fifa-14.jpg' %}" alt="">
+    <img src="{% static 'images/fifa-xbox-games.jpg' %}" alt="">
+    <img src="{% static 'images/fifa-xbox-one.jpg' %}" alt="">
+    <img src="{% static 'images/five_years_of_assassins_creed-HD.jpg' %}" alt="">
+    <img src="{% static 'images/far_cry_4_game-wide.jpg' %}" alt="">
+    <img src="{% static 'images/forza_horizon_3_4k-HD.jpg' %}" alt="">
+{% endblock %}

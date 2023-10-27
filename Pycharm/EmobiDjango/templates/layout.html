@@ -1,10 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>{% block title %}BigDoc{% endblock %}</title>
+    {% endif %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.2-dist/css/bootstrap.min.css' %}">
+    {% block stylesheet %}{% endblock %}
 </head>
 <body>
-$END$
+{#    <a href="{% url 'home' %}"><button type="button" class="btn btn-warning">Home</button></a>#}
+{#    <a href="{% url 'gallery' %}"><button type="button" class="btn btn-success">Gallery</button></a>#}
+{#    <button type="button" class="btn btn-danger">Contact</button>#}
+{#    <button type="button" class="btn btn-primary"><a href="{% url 'about' %}"></a>About</button>#}
+{#    <button type="button" class="btn btn-info">Portfolio</button>#}
+{#    <button type="button" class="btn btn-outline-dark">Services</button>#}
+{#    <button type="button" class="btn btn-secondary">Products</button>#}
+{##}
+{#    <br>#}
+
+<a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+<a href="{% url 'gallery' %}" class="btn btn-success">Gallery</a>
+<a href="{% url 'contact' %}" class="btn btn-danger">Contact</a>
+<a href="{% url 'about' %}" class="btn btn-info">About</a>
+<a href="#" class="btn btn-warning">Portfolio</a>
+<a href="#" class="btn btn-outline-dark">Services</a>
+<a href="#" class="btn btn-secondary">Products</a>
+
+{% block content %}
+{% endblock %}
+
+<script src="{% static 'bootstrap-5.3.2-dist/js/bootstrap.min.js' %}"></script>
 </body>
 </html>
