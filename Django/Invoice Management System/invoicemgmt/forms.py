@@ -4,6 +4,7 @@ from .models import Invoice
 
 require = "This field id required"
 class InvoiceForm(forms.ModelForm):
+        invoice_date = forms.DateField(widget=forms.SelectDateWidget)
         class Meta:
                 model = Invoice
                 # fields = ['name', 'phone_number', 'invoice_date', 'invoice_number',

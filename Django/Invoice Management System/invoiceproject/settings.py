@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'registration', #should be immediately above 'django.contrib.auth'
+    'registration',  # should be immediately above 'django.contrib.auth'
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -86,16 +86,20 @@ WSGI_APPLICATION = 'invoiceproject.wsgi.application'
 # }
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'OPTIONS': {
+    #         'sql_mode': 'traditional',
+    #     },
+    #     'NAME': 'invoicemgmt',
+    #     'USER': 'root',
+    #     'PASSWORD': '',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'sql_mode': 'traditional',
-        },
-        'NAME': 'invoicemgmt',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -150,7 +154,9 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
-REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+REGISTRATION_OPEN = True                # If True, users can register
+ACCOUNT_ACTIVATION_DAYS = 7             # One-week activation window
+REGISTRATION_AUTO_LOGIN = True          # If True, the user will be automatically logged in.
+LOGIN_REDIRECT_URL = '/list_invoice'          # The page you want users to arrive at after they successfully log in
+LOGIN_URL = '/accounts/login/'          # The page users are directed to if they are not logged in
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/list_invoice'
