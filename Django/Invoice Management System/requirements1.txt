@@ -4,10 +4,10 @@ distlib==0.3.6
 Django==4.1.7
 filelock==3.12.0
 freetype-py==2.3.0
-mysqlclient==2.1.1
-Pillow==9.4.0
+# mysqlclient==2.1.1
+Pillow==10.1.0
 platformdirs==3.5.0
-pycairo==1.23.0
+# pycairo==1.23.0
 pycodestyle==2.10.0
 reportlab==4.0.0
 rlPyCairo==0.2.0
