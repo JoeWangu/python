@@ -1,0 +1,2 @@
+workon royaldweeb.pythonanywhere.com
+python manage.py collectstatic
