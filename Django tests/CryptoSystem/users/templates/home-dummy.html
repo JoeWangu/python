@@ -1,0 +1,187 @@
+<section id="invest">
+    <div class="invest-wrapper">
+        <div class="invest-title title-color">
+            <h2>Long Term Investments</h2>
+        </div>
+        <div class="invest-text">
+            <p>Mali provides many ways of investing. You can use the M-Pesa app, our USSD code or even right here on
+                our website. The former methods, however are limited to short term investments. That's why we are
+                pleased to announce that you can now be able to invest right here on the website for the long term
+                which guarantees more returns on your investment. Save now using any of the fixed packages below and
+                watch your money grow.
+            </p>
+        </div>
+
+        <div class="invest-card-div">
+            <div class="invest-card">
+                <div class="invest-card-image"></div>
+                {% comment %} <div class="invest-category"> Save 3000Ksh. and get up to 6000Ksh. </div> {% endcomment %}
+                <div class="invest-heading"> Save 3000Ksh. and get up to 6000Ksh.
+                    {% comment %} <div class="invest-author"> By <span class="invest-name">Abi</span> 4 days ago
+                    </div> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="invest-card">
+                <div class="invest-card-image"></div>
+                {% comment %} <div class="invest-category"> Save 3000Ksh. and get up to 6000Ksh. </div> {% endcomment %}
+                <div class="invest-heading"> Save 3000Ksh. and get up to 6000Ksh.
+                    {% comment %} <div class="invest-author"> By <span class="invest-name">Abi</span> 4 days ago
+                    </div> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="invest-card">
+                <div class="invest-card-image"></div>
+                {% comment %} <div class="invest-category"> Save 3000Ksh. and get up to 6000Ksh. </div> {% endcomment %}
+                <div class="invest-heading"> Save 3000Ksh. and get up to 6000Ksh.
+                    {% comment %} <div class="invest-author"> By <span class="invest-name">Abi</span> 4 days ago
+                    </div> {% endcomment %}
+                </div>
+            </div>
+
+            <div class="invest-card">
+                <div class="invest-card-image"></div>
+                {% comment %} <div class="invest-category"> Save 3000Ksh. and get up to 6000Ksh. </div> {% endcomment %}
+                <div class="invest-heading"> Save 3000Ksh. and get up to 6000Ksh.
+                    {% comment %} <div class="invest-author"> By <span class="invest-name">Abi</span> 4 days ago
+                    </div> {% endcomment %}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="invest-card-btn">
+            <a href="{% url 'signup_login' %}" class="btn-primary">Sign In</a>
+        </div>
+    </div>
+</section>
+
+<section class="who-we-are2">
+    <div class="our-offer">
+        <div class="card">
+            <div class="card-text">
+                <h3 class="head title-color">Our offer for investors</h3>
+                <p class="text">Using years of experience and professionalism of our traders in trading on various
+                    digital exchanges, as well as the use of competent trading strategies, we have developed an
+                    innovative offer with a fixed and guaranteed interest rate, with simple conditions of withdrawal
+                    of received dividends.
+                    By providing strategy, guidance, counsel, operational expertise, relationships and capital, the
+                    total value of our service will far outweigh the initial monetary investment.</p>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn-primary">logout</a>
+                {% else %}
+                <a href="{% url 'signup_login' %}" class="btn-primary">Start Investing</a>
+                {% endif %}
+            </div>
+            <div class="card-img">
+                <img src="{% static '/img/chart-bg.jpg' %}" alt="bitcoin or stock exchange image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="who-we-are3">
+    <div class="unique-opportunity">
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static '/img/expertise-top.png' %}" alt="bitcoin or stock exchange image">
+            </div>
+            <div class="card-text">
+                <h3 class="head title-color">Unique opportunity for investors to tilt earning potential</h3>
+                <p class="text">We support a wide range of innovation by investing globally and across far more risk
+                    levels, deal sizes and industries than a typical investment firm.
+
+                    Our cross-sector approach enables a creative ferment that ignites the engine of innovation. We
+                    back
+                    teams for the long term, selecting those that have a hunger for breakthrough and who share our
+                    hands-on approach to investing.</p>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn-primary">logout</a>
+                {% else %}
+                <a href="{% url 'signup_login' %}" class="btn-primary">Start Investing</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div id="about">
+        <div class="about-heading">
+            <span>Be The Change</span>
+            <strong>What's interesting about Us</strong>
+        </div>
+
+        <!-- services box container -------------------------->
+        <div class="about-container">
+            <!-- box1 -------------------->
+            <div class="about-box">
+                <!-- icon ---------------->
+                <i class="fas fa-paw"></i>
+                <!-- title ---------------->
+                <strong>It's not charts, it's freedom</strong>
+                <!-- paragraph -------------->
+                <p>We never lose sight of the fact that millions of traders invest their hard-won capital based on
+                    what
+                    they see on our platform. The better we do, the better you can do.</p>
+            </div>
+
+            <!-- box2 -------------------->
+            <div class="about-box">
+                <i class="fas fa-home"></i>
+                <!-- title ---------------->
+                <strong>Our users are our investors</strong>
+                <!-- paragraph -------------->
+                <p>We make most of our money only through low cost monthly subscriptions and ads. We don't care if
+                    you
+                    trade or not. For us, objectivity is excellence.</p>
+            </div>
+
+            <!-- box3 -------------------->
+            <div class="about-box">
+                <i class="fas fa-file-alt"></i>
+                <!-- title ---------------->
+                <strong>Finance should be social</strong>
+                <!-- paragraph -------------->
+                <p>For us, open discussion and self-expression are the greatest keys to unlocking understanding, so
+                    we've set out to build the best finance platform with a strong social network at its core.</p>
+            </div>
+
+            <!-- box4 -------------------->
+            <div class="about-box">
+                <i class="fas fa-tag"></i>
+                <!-- title ---------------->
+                <strong>Built for risk-takers</strong>
+                <!-- paragraph -------------->
+                <p>We support some of the world's best athletes because a. they're kick-ass and b. they know a thing
+                    or
+                    two about calculated risk and reward — just like our users.</p>
+            </div>
+
+            <!-- box5 -------------------->
+            <div class="about-box">
+                <i class="fas fa-thumbtack"></i>
+                <!-- title ---------------->
+                <strong>Charts that move markets</strong>
+                <!-- paragraph -------------->
+                <p>Whether you'd like to simply look up the latest stock price, or analyze price patterns with
+                    lengthy
+                    scripts — we got you covered.</p>
+            </div>
+
+            <!-- box5 -------------------->
+            <div class="about-box">
+                <i class="fas fa-wallet"></i>
+                <!-- title ---------------->
+                <strong>Global markets in your hand</strong>
+                <!-- paragraph -------------->
+                <p>Our platform reliably connects to hundreds of data feeds, with direct access to 1,357,880
+                    instruments
+                    from all over the world. All this makes TradingView your only needed point of entry for
+                    everything
+                    markets.</p>
+            </div>
+        </div>
+    </div>
+</section>

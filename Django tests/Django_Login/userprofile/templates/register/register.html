@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <!-- {{ form }} -->
+    {% for field in form %}
+    <div class="form-field {% if field.is_hidden %}hidden{% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+        {% comment %}
+        {{ field.help_text }}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {% endcomment %}
+    </div>
+    {% endfor %}
+
+    <br>
+    <input type="submit" value="Register" />
+</form>
+{% endblock %}
+
+
+{% comment %}{% endcomment %}
+{% comment %}
+<!-- EXAMPLE OF GETTING MORE CONTROL OVER THE FORM -->
+<!-- field.is_checkbox: Returns True if the field is a checkbox input, False otherwise. You can use this to customize the rendering or add additional logic specific to checkbox inputs.
+
+field.value: Retrieves the current value of the field. You can use this to access the field's value or compare it with other values. Example usage: {% if field.value == 'some_value' %} ... {% endif %} -->
+<!-- https://docs.djangoproject.com/en/3.2/topics/forms/#rendering-forms -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Sign up</h2>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+        <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+    <p style="color: red">{{ error }}</p>
+    {% endfor %}
+    </p>
+    {% endfor %}
+    <button type="submit">Sign up</button>
+</form>
+{% endblock %}
+{% endcomment %}

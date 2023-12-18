@@ -1,0 +1,57 @@
+<section id="navigation">
+    <div class="navbar">
+        <nav>
+            <div class="logo">
+                <a href="#">Mali</a>
+            </div>
+            {% comment %}
+            {% if user.is_authenticated %}
+            <h2>Hello {{ user.username|default:'Guest' }}</h2>
+            {% else %}
+            <h2>Login to Invest</h2>
+            {% endif %}
+            {% endcomment %}
+            <div id="nav">
+                <ul>
+                    <li>
+                        <a href="https://www.safaricom.co.ke/personal">
+                            Personal
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.safaricom.co.ke/about-landing">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.safaricom.co.ke/media-center-landing/contact-us-media">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.safaricom.co.ke/customer-service">
+                            Customer Service
+                        </a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout' %}" class="btn-primary">logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'signup_login' %}" class="btn-primary">Sign In</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+            <div class="toggle" onclick="toggle()">
+                <i class="fa fa-bars" aria-hidden="true" id="toggleOpen"></i>
+            </div>
+        </nav>
+    </div>
+</section>

@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>List of Invoices</title>
+</head>
+
+<body>
+    {% comment %} {% include 'navbar.html' %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %} {% endcomment %}
+    <h1>{{title}}</h1>
+
+    <div class="myForm">
+        <form method='POST' action='' class="search-form">
+            {% csrf_token %}
+            <div class="row">
+                <div class='col-sm-12'>
+                    <div class="form-row d-flex">
+                        {% if request.user.is_authenticated %}
+                        <p>You are logged in as {{ user }}</p>
+                        <a href="{% url 'logout' %}" class="btn btn-warning">logout</a>
+                        {% else %}
+                        <p>You are not logged in </p>
+                        <a href="{% url 'login' %}" class="btn btn-info">login</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>DATE</th>
+                <th>BLOOD PRESSURE</th>
+                <th>BLOOD SUGAR</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        {% for record in records %}
+        <tr>
+            <td>{{record.date}}</td>
+            <td>{{record.blood_pressure}} mmol/dL</td>
+            <td>{{record.blood_sugar}} mmHg</td>
+            <td><a href="{% url 'update' record.id %}">Update</a></td>
+            <td><a href="{% url 'delete' record.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'create' %}" class="btn btn-primary">add</a>
+
+    <script src="{% static 'js/jquery-3.6.4.js' %}"></script>
+    <script src="{% static 'jquery-ui-1.13.2/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/fancyTable.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>List of Health Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>List of Health Records</h1>
+    <form method="GET" action=".">
+        <input type="date" name="date" placeholder="Date">
+        <button type="submit">Search</button>
+    </form>
+    <table>
+        <tr>
+            <th>DATE</th>
+            <th>DIABETES SUGARS</th>
+            <th>BLOOD PRESSURE LEVELS</th>
+        </tr>
+        <!-- You'll need to replace this with actual data -->
+        <tr>
+            <td>11-26-2023</td>
+            <td>5.6 mmol/dL</td>
+            <td>120/80 mmHg</td>
+        </tr>
+    </table>
+</body>
+</html> {% endcomment %}

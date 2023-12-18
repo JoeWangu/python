@@ -1,0 +1,93 @@
+cd desktop\joe\code\python\django\invoice` management` system - powershell
+cd desktop/joe/code/python/django/invoice management system - cmd
+
+imsvenv\Scripts\activate.ps1
+imsvenv\Scripts\activate.bat
+
+
+pip install -r requirements.txt
+django-admin startproject django_project .
+manage.py makemigrations
+manage.py migrate
+manage.py runserver
+manage.py createsuperuser
+python manage.py collectstatic
+
+pip install django-registration-redux - user registration
+pip install reportlab - generate pdfs
+pip install pillow
+pip install django
+python -m pip install django
+pip install pipreqs - for generating a requirements.txt file. then run 'pipreqs /location' to do it
+pip install django-crispy-forms
+pip install django-tables2
+pip install django-filter
+pip install python-decouple
+pip install mysqlclient
+
+*PYTHON ANYWHERE COMMANDS*
+pip install --user pythonanywhere
+pa_autoconfigure_django.py --python=3.8 https://github-or-lab.com/<your-github-or-lab-username>/my-first-blog.git
+
+pip freeze > requirements.txt
+terminal.integrated.default.windows - vs code settings
+
+INSTALLING VENV
+python -m venv .venv
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.venv\Scripts\Activate.ps1
+
+
+pip freeze - check installed packages
+python -m pip check - check for missing dependencies
+pip list --outdated - check outdated packages
+pip install -U packageName - upgrade packages
+
+NGROK START
+ngrok help
+ngrok http 80 - instead of 80 input your local server eg.5000
+
+OTHER DJANGO COMMANDS
+--------------------------------------------------------
+manage.py makemigrations your_django_project --empty - create an empty migration
+
+STEPS AFTER STARTING A PROJECT 
+--------------------------------------------------------
+1.DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        },
+        'NAME': 'invoicemgmt',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+2.migrations
+3.createsuperuser
+4.startapp & include in settings
+5.create folders static and templates
+6.make models
+7.write a view
+8.map to url
+
+
+
+
+
+admin/
+accounts/ login/ [name='login']
+accounts/ logout/ [name='logout']
+accounts/ password_change/ [name='password_change']
+accounts/ password_change/done/ [name='password_change_done']
+accounts/ password_reset/ [name='password_reset']
+accounts/ password_reset/done/ [name='password_reset_done']
+accounts/ reset/<uidb64>/<token>/ [name='password_reset_confirm']
+accounts/ reset/done/ [name='password_reset_complete']
+home/
+
+ssh -R 80:localhost:8000 serveo.net

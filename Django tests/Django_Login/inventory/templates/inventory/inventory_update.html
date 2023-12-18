@@ -1,0 +1,14 @@
+{% extends '../layout.html' %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Update</button>
+</form>
+
+{% endblock %}
+
+
+{% comment %}
+{% for forms in form %}
+{% endcomment %}

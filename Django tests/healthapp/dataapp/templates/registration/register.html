@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Registration Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="{% static 'images/firstcorrectspell.jpg' %}">
+    <style>
+        body {
+            background-color: #007bff;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Input field styles */
+        .form-control {
+            border-radius: 5px;
+            box-shadow: none;
+        }
+
+        .form-label {
+            color: #777;
+        }
+
+        /* Button styles */
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 form-container">
+            <div class="text-center">
+                <img src="{% static 'images/images/personalbest.jpg' %}" alt="Logo"
+                     style="width: 100px; height: 100px;">
+            </div>
+            <h2 class="text-center mb-4">Hospital Registration Form</h2>
+            <form id="registrationForm" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {% comment %} <input type="text" class="form-control" id="name" placeholder="Name" required> {% endcomment %}
+                    <label for="">username</label>
+                    {{ form.username }}
+                </div>
+                {% comment %} <div class="form-group">
+                    <input type="date" class="form-control" id="dob" placeholder="Date of Birth" required>
+                </div> {% endcomment %}
+                {% comment %} <div class="form-group">
+                    <select class="form-control" id="nationality" required>
+                        <option value="" disabled selected>Select Nationality</option>
+                        <option value="DZ">Algeria</option>
+                        <option value="AO">Angola</option>
+                        <option value="BJ">Benin</option>
+                        <option value="BW">Botswana</option>
+                        <option value="BF">Burkina Faso</option>
+                        <option value="BI">Burundi</option>
+                        <option value="CM">Cameroon</option>
+                        <option value="CV">Cape Verde</option>
+                        <option value="CF">Central African Republic</option>
+                        <option value="TD">Chad</option>
+                        <option value="KM">Comoros</option>
+                        <option value="CG">Congo - Brazzaville</option>
+                        <option value="CD">Congo - Kinshasa</option>
+                        <option value="DJ">Djibouti</option>
+                        <option value="EG">Egypt</option>
+                        <option value="GQ">Equatorial Guinea</option>
+                        <option value="ER">Eritrea</option>
+                        <option value="ET">Ethiopia</option>
+                        <option value="GA">Gabon</option>
+                        <option value="GM">Gambia</option>
+                        <option value="GH">Ghana</option>
+                        <option value="GN">Guinea</option>
+                        <option value="GW">Guinea-Bissau</option>
+                        <option value="CI">Ivory Coast</option>
+                        <option value="KE">Kenya</option>
+                        <option value="LS">Lesotho</option>
+                        <option value="LR">Liberia</option>
+                        <option value="LY">Libya</option>
+                        <option value="MG">Madagascar</option>
+                        <option value="MW">Malawi</option>
+                        <option value="ML">Mali</option>
+                        <option value="MR">Mauritania</option>
+                        <option value="MU">Mauritius</option>
+                        <option value="YT">Mayotte</option>
+                        <option value="MA">Morocco</option>
+                        <option value="MZ">Mozambique</option>
+                        <option value="NA">Namibia</option>
+                        <option value="NE">Niger</option>
+                        <option value="NG">Nigeria</option>
+                        <option value="RE">Réunion</option>
+                        <option value="RW">Rwanda</option>
+                        <option value="SH">Saint Helena</option>
+                        <option value="ST">São Tomé & Príncipe</option>
+                        <option value="SN">Senegal</option>
+                        <option value="SC">Seychelles</option>
+                        <option value="SL">Sierra Leone</option>
+                        <option value="SO">Somalia</option>
+                        <option value="ZA">South Africa</option>
+                        <option value="SS">South Sudan</option>
+                        <option value="SD">Sudan</option>
+                        <option value="SZ">Swaziland</option>
+                        <option value="TZ">Tanzania</option>
+                        <option value="TG">Togo</option>
+                        <option value="TN">Tunisia</option>
+                        <option value="UG">Uganda</option>
+                        <option value="EH">Western Sahara</option>
+                        <option value="ZM">Zambia</option>
+                        <option value="ZW">Zimbabwe</option>
+                    </select>
+                </div> {% endcomment %}
+
+                {% comment %} <div class="form-group">
+                    <textarea class="form-control" id="address" rows="2" placeholder="Address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="disease" required>
+                        <option value="" disabled selected>Select Type of Disease</option>
+                        <option value="Hypertension">Hypertension</option>
+                        <option value="Diabetes">Diabetes</option>
+                        <option value="Asthma">Asthma</option>
+                        <option value="Cancer">Cancer</option>
+                    </select>
+                </div> {% endcomment %}
+                {% comment %} <div class="form-group">
+                    <label for="">email</label>
+                    {{ form.email }}
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                </div> {% endcomment %}
+                <div class="form-group">
+                    <label for="">password</label>
+                    {% comment %} <input type="password" class="form-control" id="password" placeholder="Password" required> {% endcomment %}
+                    {{ form.password1 }}
+                </div>
+
+                <div class="form-group">
+                  <label for="">confirm password</label>
+                  {{ form.password2 }}
+                    {% comment %} <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"
+                          required> {% endcomment %}
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register <a href="../dataentry.html"></a>
+                </button>
+                <small class="d-block mt-3 text-center">I have an account <a href="{% url 'login' %}">Login</a></small>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- Your custom JavaScript -->
+<!-- Add registration form validation and submission logic using JavaScript/jQuery -->
+</body>
+</html>
