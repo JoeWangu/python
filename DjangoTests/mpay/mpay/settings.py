@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -25,8 +24,7 @@ SECRET_KEY = 'django-insecure-=3+lb(@2n^hy%5s34i@gqr8c+#q%#f=@7d$+88xs0hqwzj)8!a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['d2a8-196-250-212-161.ngrok-free.app','127.0.0.1']
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -71,7 +69,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mpay.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -81,7 +78,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -101,7 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -112,7 +107,6 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -134,7 +128,7 @@ MPESA_ENVIRONMENT = 'sandbox'
 MPESA_CONSUMER_KEY = 'PXqY5NWySryDK9RWOvAnHN1w9kt5LRdg'
 MPESA_CONSUMER_SECRET = 'zVErEFB9y8w45bcq'
 
-#Shortcode to use for transactions. For sandbox  use the Shortcode 1 provided on test credentials page
+# Shortcode to use for transactions. For sandbox  use the Shortcode 1 provided on test credentials page
 
 MPESA_SHORTCODE = '600995'
 
