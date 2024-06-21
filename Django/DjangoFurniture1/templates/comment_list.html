@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for comment in comments %}
+<div class="col-sm-6 offset-3">
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">COMMENTS</h5>
+                    <div class="safe">
+                        <p class="card-text">{{ comment.body }}</p>
+                        <p>{{ comment.id }}</p>
+                        <p>Comment Author: {{ comment.user }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+
+{% verbatim %}
+<!-- <p>{{ obj.id }}</p>
+<a href="{% url 'detail' id=obj.id %}" class="btn btn-primary">Go to Post</a> -->
+
+<!-- #
+# -->
+{% endverbatim %}

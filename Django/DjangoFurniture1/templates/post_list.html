@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-sm-6 offset-3">
+    <h1> {{ title }} Amazing Template</h1>
+    <form action="" method="GET">
+
+        <div class="input-group">
+            <input type="text" class="form-control" name="q" id="" placeholder="Search Posts" value="{{ request.GET.q }}">
+            <button type="submit" class="btn btn-outline-secondary"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+        </div>
+
+    </form>
+<br>
+    {% for obj in object_list %}
+        {% verbatim %}
+        <!-- <a href="/posts/{{ obj.id }}/">{{ obj.title }} </a> <br> (one way of doing it) -->
+        {% endverbatim %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                {% if obj.image %}
+                <img src="{{ obj.image.url }}" alt="Image Not Found" class="card-img-top img-fluid img-thumbnail img-responsive" style="height: 300px; width: 100%;">
+                {% endif %}
+                <div class="card-body">
+                    {% verbatim %}
+                    <!-- {% if obj.draft %}<h3>DRAFT</h3>{% endif %} -->
+                    {% endverbatim %}
+                    {% if obj.publish > today %}
+                    <h3 style="color: #ea08ff;">STAFF ONLY: Future Post</h3>
+                    {% endif %}
+                    <h5 class="card-title">
+                        <a href="{% url 'posts:detail' id=obj.id %}"
+                            style="text-decoration: none; font-size: bold; font-weight: bolder; text-transform: uppercase;">{{ obj.title }} <br>
+                            <small style="text-decoration: none;text-transform: capitalize; font-size: small;">
+                                {% if obj.draft %} <span style="color: #ad1616;">Draft</span> {% endif %}
+                                {{ obj.publish }}
+                            </small>
+                        </a>
+                    </h5>
+                    {% if obj.user.get_full_name %}
+                    <p>Author: {{ obj.user.get_full_name }}</p>
+                    {% endif %}
+                    <div class="safe">
+                        <p class="card-text">{{ obj.safeContent|truncatechars:100 }}</p>
+                    </div>
+                    
+                    <p>{{ obj.id }}</p>
+                    <a href="{% url 'posts:detail' id=obj.id %}" class="btn btn-primary">Go to Post</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+    </div>
+        {% verbatim %}
+            <!-- {% cycle '' '<div class="col-sm-12"><hr></div> </div><div class="row">' %} -->
+        {% endverbatim %}
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+</div>
+{% endblock %}

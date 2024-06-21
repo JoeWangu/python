@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-sm-6 offset-sm-3">
+    <h5>posted</h5>
+    <p>{{ com.created_on }}</p>
+    <small> {{ com.created_on|timesince }} ago</small>
+
+    {% if com.name %}
+    <p>Author: {{ com.name }}</p>
+    {% endif %}
+    <hr>
+    <div class="row">
+        <div class="col-sm-12 ">
+            <div class="safe">
+                {{ com.body }} <br>
+                <p>Comment Author: {{ com.user }}</p>
+                <!-- {% verbatim %}
+                <a href="{% url 'del' id=obj.id %}" class="btn btn-primary  btn-sm">delete comment</a>
+                {% endverbatim %} -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{
+    "cSpell.words": [
+        "idee",
+        "numposts",
+        "pagedown",
+        "Pinterest",
+        "urlify"
+    ],
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "mysqldjango",
+            "username": "dbadmin2",
+            "database": "django2a",
+            "password": "1234"
+        }
+    ]
+}

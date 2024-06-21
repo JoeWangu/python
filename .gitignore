@@ -5,3 +5,7 @@ db.sqlite3
 seriousProjects/djangorestims
 
 seriousProjects/schoolproject/rentalfinder
+**/.venv/
+**/__pycache__/
+**/migrations/
+db.sqlite3
