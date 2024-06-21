@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.db.models import Q 
+from django.db.models import Q
 from .models import Category, Post, Author
+
 
 def get_author(user):
     qs = Author.objects.filter(user=user)
@@ -8,28 +9,32 @@ def get_author(user):
         return qs[0]
     return None
 
-def home (request):
+
+def home(request):
     categories = Category.objects.all()[0:3]
     featured = Post.objects.filter(featured=True)
     latest = Post.objects.order_by('-timestamp')[0:3]
-    context= {
+    context = {
         'object_list': featured,
         'latest': latest,
-        'categories':categories,
+        'categories': categories,
     }
-    return render(request, 'post_home.html',context)
+    return render(request, 'post_home.html', context)
 
-def post (request,slug):
-    post = Post.objects.get(slug = slug)
+
+def post(request, slug):
+    posts = Post.objects.get(slug=slug)
     latest = Post.objects.order_by('-timestamp')[:3]
     context = {
-        'post': post,
+        'post': posts,
         'latest': latest,
     }
     return render(request, 'post.html', context)
 
-def about (request):
+
+def about(request):
     return render(request, 'about.html')
+
 
 def search(request):
     queryset = Post.objects.all()
@@ -45,8 +50,8 @@ def search(request):
     return render(request, 'search_bar.html', context)
 
 
-def postlist (request,slug):
-    category = Category.objects.get(slug = slug)
+def postlist(request, slug):
+    category = Category.objects.get(slug=slug)
     posts = Post.objects.filter(categories__in=[category])
 
     context = {
@@ -54,6 +59,7 @@ def postlist (request,slug):
         'category': category,
     }
     return render(request, 'post_list.html', context)
+
 
 def allposts(request):
     posts = Post.objects.order_by('-timestamp')

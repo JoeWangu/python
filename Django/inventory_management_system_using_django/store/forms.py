@@ -41,6 +41,7 @@ class SupplierForm(forms.Form):
         'data-val-required': 'Please enter retype_password',
     }))
 
+
 class BuyerForm(forms.Form):
     name = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
@@ -98,7 +99,6 @@ class DropForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'id': 'name'})
         }
-
 
 
 class ProductForm(forms.ModelForm):
